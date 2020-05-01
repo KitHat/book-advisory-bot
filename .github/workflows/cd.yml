@@ -43,5 +43,5 @@ jobs:
           source /root/.bashrc
           echo $TELEGRAM_BOT_TOKEN
           cd /code
-          docker compose down
+          docker-compose down
           docker-compose up 2>err 1>out &
