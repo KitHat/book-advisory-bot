@@ -42,4 +42,5 @@ jobs:
         script: |
           source /root/.bashrc
           cd /code
+          docker compose down
           docker-compose up 2>err 1>out &
