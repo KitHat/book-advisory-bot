@@ -6,7 +6,7 @@ name: Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,5 +40,6 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
+          source /root/.bashrc
           cd /code
           docker-compose up 2>err 1>out &
