@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: bot
+      dockerfile: ../devops/python.dockerfile
+    volumes:
+      - ./bot:/code
+    environment: 
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}

@@ -1,0 +1,2 @@
+class WrongSetupError(Exception):
+    pass
