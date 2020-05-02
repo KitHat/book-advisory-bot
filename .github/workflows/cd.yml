@@ -34,13 +34,15 @@ jobs:
 
     - name: multiple command
       uses: appleboy/ssh-action@master
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
+        envs: TELEGRAM_BOT_TOKEN
         script: |
-          source /root/.bashrc
           echo $TELEGRAM_BOT_TOKEN
           cd /code
           docker-compose down
