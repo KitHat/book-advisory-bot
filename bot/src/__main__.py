@@ -10,7 +10,7 @@ def get_url():
     url = contents['url']
     return url
 
-def bop(update: Update, context: CallbackContext):
+def bark(update: Update, context: CallbackContext):
     url = get_url()
     chat_id = update.message.chat_id
     context.bot.send_photo(chat_id=chat_id, photo=url)
@@ -21,7 +21,7 @@ def main():
         raise WrongSetupError("bot token should be set")
     updater = Updater('1298281693:AAGbWqq38q4qIRR36LhS9W7xsBrP2V3t-J8', use_context=True)
     dp = updater.dispatcher
-    dp.add_handler(CommandHandler('bop',bop))
+    dp.add_handler(CommandHandler('bark',bark))
     updater.start_polling()
     updater.idle()
 
